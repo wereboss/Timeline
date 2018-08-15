@@ -42,23 +42,28 @@ function FieldSet(fieldArr,fieldOrder){
     });
 }
 
-function loadFields(url){
+function loadFieldSet(url){
     var fArr = [];
+    var tObj, tFSObj, hObj, aObj = [];
     $.ajaxSetup({
         async: false
     });
     $.getJSON(url, function (data) {
         //console.log("StringiFy JSON Data" + JSON.stringify(data.d.results));
         $.each(data.fields, function (ini, it) {
-            fObj.push(it);
+            hObj = new HTemplate(it.fieldHTML.start,it.fieldHTML.end,it.fieldHTML.hasEnd);
+            tObj = new FieldTemplate(it.fieldName,hObj);
+            fArr.push(tObj);
         });
+        data.fieldOrder.forEach(currentItem => {
+           aObj.push(currentItem); 
+        });
+        tFSObj = new FieldSet(fArr,tObj);
         //console.log("StringiFy tmpObj" + JSON.stringify(tmpObj));
         //console.log("tmpObj len " + tmpObj.length);
+        return tFSObj;
     });
     $.ajaxSetup({
         async: true
-    });
-    fobj.forEach(element => {
-        fArr.push(element)
     });
 }

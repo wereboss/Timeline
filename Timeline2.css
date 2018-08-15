@@ -144,7 +144,7 @@
 
 .timeline-body > p,
 .timeline-body > ul {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .timeline-body > p + p {
@@ -187,13 +187,16 @@
   }
 }
 .logowarning {
-    font-size: 14px;
+    font-size: 16px;
     color: #f0ad4e;
 }
 .logodanger {
-    font-size: 14px;
+    font-size: 16px;
     color: #d9534f;
 }
 .tags {
     font-size: 14px;
+}
+.col-sm-12 > p {
+    margin-bottom: 5px;   
 }

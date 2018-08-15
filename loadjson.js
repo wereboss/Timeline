@@ -14,7 +14,6 @@ function loadJSON(url) {
         });
         //console.log("StringiFy tmpObj" + JSON.stringify(tmpObj));
         //console.log("tmpObj len " + tmpObj.length);
-        waitB = false;
     });
     $.ajaxSetup({
         async: true
