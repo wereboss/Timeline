@@ -7,6 +7,22 @@
                 "end":"",
                 "hasEnd":false
             }
+        },
+        {
+            "fieldName":"Title",
+            "fieldHTML":{
+                "start":"",
+                "end":"",
+                "hasEnd":false
+            }
+        },
+        {
+            "fieldName":"Title",
+            "fieldHTML":{
+                "start":"",
+                "end":"",
+                "hasEnd":false
+            }
         }
     ],
     "fieldOrder": [

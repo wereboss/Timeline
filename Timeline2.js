@@ -64,7 +64,7 @@ $(function() {
       //console.log("inside itArr each item:" + JSON.stringify(cItem));
       tmHTML += '<div class="timeline-heading">';
       tmHTML += '<div class="row">';
-      tmHTML += '<div class="col-sm-10">';
+      tmHTML += '<div class="col-sm-8">';
       tmHTML += '<h4 class="timeline-title">';
       if (cItem.Type == "Enhancement") {
         tmHTML += '<i class="fas fa-star logowarning"></i>  ';
@@ -73,7 +73,7 @@ $(function() {
       }
       tmHTML += cItem.Title + "</h4>";
       tmHTML += "</div>";
-      tmHTML += '<div class="col-sm-2">';
+      tmHTML += '<div class="col-sm-4" style="align: right;">';
       tmpStr = cItem.Countries;
       ctryArr = tmpStr.split(",");
       ctryArr.forEach(cCtry => {
