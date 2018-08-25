@@ -200,3 +200,6 @@
 .col-sm-12 > p {
     margin-bottom: 5px;   
 }
+.infoshade {
+  background-color : rgba(70, 105, 102, 0.2);
+}

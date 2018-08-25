@@ -73,12 +73,12 @@ $(function() {
       }
       tmHTML += cItem.Title + "</h4>";
       tmHTML += "</div>";
-      tmHTML += '<div class="col-sm-4" style="align: right;">';
+      tmHTML += '<div class="col-sm-4" style="text-align: right;">';
       tmpStr = cItem.Countries;
       ctryArr = tmpStr.split(",");
       ctryArr.forEach(cCtry => {
         tmHTML +=
-          '<div class="btn btn-outline-info btn-sm">' + cCtry + "</div>";
+          '<div class="btn btn-outline-secondary btn-sm">' + cCtry + "</div>";
       });
       tmHTML += "</div></div></div>";
       tmHTML += '<div class="timeline-body">';
@@ -88,7 +88,7 @@ $(function() {
       tmpStr = cItem.Tags;
       tagArr = tmpStr.split(",");
       tagArr.forEach(tItem => {
-        tmHTML += '<h6 class="badge badge-secondary">' + tItem + "</h6>";
+        tmHTML += '<h6 class="badge badge-pill badge-info infoshade">' + tItem + "</h6>";
       });
       tmHTML += "</div>";
       tmHTML += '<div class="col-sm-2">';
