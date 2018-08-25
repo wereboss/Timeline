@@ -6,7 +6,7 @@
         "Desc": "Officia anim aute labore et non qui duis. Excepteur enim et eiusmod pariatur excepteur deserunt nisi nostrud esse consectetur proident sint. Ut cillum irure esse pariatur incididunt est cupidatat ipsum laboris ad est proident. Ad veniam exercitation elit fugiat eiusmod do mollit aliquip quis proident deserunt nisi aliquip.",
         "Type": "Enhancement",
         "Countries": "SG, AU",
-        "Tags": "Screen, Biometric, Binary Update",
+        "Tags": "Screen, Biometric",
         "RelMonth": 4,
         "RelYear": 2018
       },
@@ -15,7 +15,7 @@
         "Desc": "Officia anim aute labore et non qui duis. Excepteur enim et eiusmod pariatur excepteur deserunt nisi nostrud esse consectetur proident sint. Ut cillum irure esse pariatur incididunt est cupidatat ipsum laboris ad est proident. Ad veniam exercitation elit fugiat eiusmod do mollit aliquip quis proident deserunt nisi aliquip.",
         "Type": "Fix",
         "Countries": "SG, MY",
-        "Tags": "Screen, Biometric, Binary Update",
+        "Tags": "Screen, Binary Update",
         "RelMonth": 7,
         "RelYear": 2018
       },
@@ -24,7 +24,7 @@
         "Desc": "Officia anim aute labore et non qui duis. Excepteur enim et eiusmod pariatur excepteur deserunt nisi nostrud esse consectetur proident sint. Ut cillum irure esse pariatur incididunt est cupidatat ipsum laboris ad est proident. Ad veniam exercitation elit fugiat eiusmod do mollit aliquip quis proident deserunt nisi aliquip.",
         "Type": "Fix",
         "Countries": "AU, MY",
-        "Tags": "Screen, Biometric, Binary Update",
+        "Tags": "Biometric, Binary Update",
         "RelMonth": 1,
         "RelYear": 2018
       },
@@ -33,7 +33,7 @@
         "Desc": "Officia anim aute labore et non qui duis. Excepteur enim et eiusmod pariatur excepteur deserunt nisi nostrud esse consectetur proident sint. Ut cillum irure esse pariatur incididunt est cupidatat ipsum laboris ad est proident. Ad veniam exercitation elit fugiat eiusmod do mollit aliquip quis proident deserunt nisi aliquip.",
         "Type": "Enhancement",
         "Countries": "TH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH, PH",
-        "Tags": "Screen, Biometric, Binary Update",
+        "Tags": "Authentication",
         "RelMonth": 10,
         "RelYear": 2018
       },
@@ -42,7 +42,7 @@
         "Desc": "Officia anim aute labore et non qui duis. Excepteur enim et eiusmod pariatur excepteur deserunt nisi nostrud esse consectetur proident sint. Ut cillum irure esse pariatur incididunt est cupidatat ipsum laboris ad est proident. Ad veniam exercitation elit fugiat eiusmod do mollit aliquip quis proident deserunt nisi aliquip.",
         "Type": "Enhancement",
         "Countries": "SG, PL, RU",
-        "Tags": "Screen, Biometric, Binary Update",
+        "Tags": "Screen, Authentication",
         "RelMonth": 7,
         "RelYear": 2018
       }
