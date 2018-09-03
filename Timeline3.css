@@ -1,0 +1,39 @@
+.calign {
+  text-align: center;
+}
+.border-1 {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0;
+}
+.left-1 {
+  border-left: 1px solid rgba(0, 0, 0, 0.125);
+}
+.bott-1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.top-1 {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+}
+.bggrey {
+    background-color: rgba(0, 0, 0, 0.125);
+}
+.postit-pink {
+    background-color: rgb(255, 213, 222,0.5);
+    box-shadow: 2px 2px 3px rgba(33,33,33,.7);
+}
+.postit-yellow {
+    background-color: rgb(255, 255, 225,0.5);
+    box-shadow: 2px 2px 3px rgba(33,33,33,.7);
+}
+.postit-blue {
+    background-color: rgba(128, 251, 255, 0.5);
+    box-shadow: 2px 2px 3px rgba(33,33,33,.7);
+}
+.f-10{
+  font-size: 10px;  
+}

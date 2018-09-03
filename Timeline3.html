@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Roadmap & Timeline</title>
+
+    <!-- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap and utilities -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <!-- BS original theme-->
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    -->
+    <!-- BS custom theme-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/lux/bootstrap.min.css">
+
+    <!--
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/yeti/bootstrap.min.css">
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <!-- Own files-->
+    <link rel="stylesheet" href="Timeline3.css">
+    <script src="Timeline3.js"></script>
+    <script src="loadjson.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header ">
+                <div class="row">
+                    <div class="col-sm-10 text-justified">
+                            <h4>Roadmap & Timeline</h4>        
+                    </div>
+                    <div class="col-sm-2 text-right">
+                            <input type="email" class="form-control" id="filterbox" placeholder="Filter">
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div id="TopRowContainer" class="card-body">
+                <div class="modal" id="SampleRow" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="card">
+                        <div class="card-header p-1 text-center">
+                            ##QuarterTitle##
+                        </div>
+                        <div class="card-body m-0">
+                            <div class="row top-1 bott-1">
+                                <div class="col-sm-6">
+                                    <div class="card-columns">
+                                        ##RoadmapItems##
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 left-1">
+                                    ##MonthItems##
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal" id="DummyRow" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div id="RoadmapItem">
+                        <div class="card m-1 p-0 d-inline-block postit-##color##">
+                            <div class="card-header">
+                                ##Header##
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">##Content##</p>
+                            </div>
+                            <div class="card-footer p-1 f-10">
+                                ##countries##                            
+                            </div>
+                        </div>
+                    </div>
+                    <div id="MonthItem">
+                        <div class="row top-1 p-1">
+                            <div class="col-sm-2">
+                                <div class="card m-0 p-0">
+                                    <div class="card-header p-1 text-center">
+                                        ##BulletItem##
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="card-columns">
+                                    ##TimelineItems##
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
