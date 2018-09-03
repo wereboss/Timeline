@@ -15,6 +15,23 @@ const Mmm = [
   "Nov",
   "Dec"
 ];
+const T2BG = {
+  RoadmapMajor: "blue",
+  RoadmapMinor: "blue",
+  TimelineEnhancement: "pink",
+  TimelineFix: "yellow"
+};
+const S2S = {
+  Scheduled: "fas fa-calendar-alt",
+  Proposed: "far fa-square",
+  Implemented: "fas fa-check",
+  Fix:"fas fa-band-aid",
+  Enhancement:"far fa-star",
+  Major:"fas fa-plus-square",
+  Minor:"fas fa-minus-square"
+};
+
+var gJSONArr = [];
 
 function QPair(qnum, ynum) {
   this.Qtr = qnum;
@@ -121,8 +138,10 @@ function drawScreen(jsObj) {
       strRI += strRoadmapItem
         .replace("##Header##", jite.Title)
         .replace("##Content##", jite.Desc)
-        .replace("##color##", "blue")
-        .replace("##countries##", jite.Countries);
+        .replace("##color##", T2BG[jite.ItemType + jite.ItemSubType])
+        .replace("##countries##", jite.Countries)
+        .replace("##stagesymbol##", S2S[jite.Stage])
+        .replace("##arrID##", jite.Id);
     });
     monArr = Q2M[ite.Qtr];
     strTIS = "";
@@ -139,16 +158,13 @@ function drawScreen(jsObj) {
       strTI = "";
       $.each(tiObj, function(tiind, tiitem) {
         //console.log("Inside foreach timelineitems " + JSON.stringify(tiitem));
-        if (tiitem.ItemSubType == "Fix") {
-          strColor = "yellow";
-        } else {
-          strColor = "pink";
-        }
         strTI += strRoadmapItem
           .replace("##Header##", tiitem.Title)
           .replace("##Content##", tiitem.Desc)
-          .replace("##color##", strColor)
-          .replace("##countries##", tiitem.Countries);
+          .replace("##color##", T2BG[tiitem.ItemType + tiitem.ItemSubType])
+          .replace("##countries##", tiitem.Countries)
+          .replace("##stagesymbol##", S2S[tiitem.Stage])
+          .replace("##arrID##", tiitem.Id);
       });
       strTIS += strMonthItem
         .replace("##BulletItem##", Mmm[mite])
@@ -167,7 +183,8 @@ function filterBy(filtext) {
   //console.log("inside filterBy:" + filtext);
   var filObj = [],
     newArr;
-  filObj = loadJSON("Timeline3.json" + "");
+  gJSONArr = loadJSON("Timeline3.json" + "");
+  filObj = gJSONArr;
   console.log("loadJSON length:" + filObj.length);
   if (filtext.trim().length > 0) {
     newArr = filObj.filter(function(val, ind, arro) {
@@ -193,18 +210,40 @@ function filterBy(filtext) {
       }
       return bFound;
     });
-  }
-  else {
-      newArr = filObj;
+  } else {
+    newArr = filObj;
   }
   console.log("newArr length:" + newArr.length);
   drawScreen(newArr);
 }
 
+function refreshModal(clickedID) {
+  /*
+    alert(JSON.stringify(gJSONArr.find(function(curr, index, arr){
+        return curr.Id == clickedID;
+    })));
+    */
+  var tmpObj = gJSONArr.find(function(curr, ind, arr) {
+    return curr.Id == clickedID;
+  });
+  $("#DisplayModal .mele[updateField='Title']").text(tmpObj.Title);
+  $("#DisplayModal .mele[updateField='Detail']").text(tmpObj.Details);
+  $("#DisplayModal .mele[updateField='Countries']").text(tmpObj.Countries);
+  $("#DisplayModal .mele[updateField='Tags']").text(tmpObj.Tags);
+  $("#DisplayModal .mele[updateField='ItemSubType']").text(tmpObj.ItemSubType);
+  $("#DisplayModal .mele[updateField='Stage']").text(tmpObj.Stage);
+  $("#DisplayModal .mele[updateField='TypeSymbol']").html('<i class="' + S2S[tmpObj.ItemSubType] + '"></i>');
+  $("#DisplayModal .mele[updateField='StageSymbol']").html('<i class="' + S2S[tmpObj.Stage] + '"></i>');
+  var di = new Date(
+    parseInt(tmpObj.RelDate.replace(/\/Date\((-?\d+)\)\//, "$1"))
+  );
+  $("#DisplayModal .mele[updateField='RelDate']").text(di.toDateString());
+}
+
 $(function() {
-  var jsObj = [];
-  jsObj = loadJSON("Timeline3.json" + "");
-  drawScreen(jsObj);
+  //var jsObj = [];
+  gJSONArr = loadJSON("Timeline3.json" + "");
+  drawScreen(gJSONArr);
 
   $("#filterbox").keypress(function(ev) {
     var keycode = ev.keyCode ? ev.keyCode : ev.which;
@@ -212,5 +251,20 @@ $(function() {
       console.log($("#filterbox").val());
       filterBy($("#filterbox").val());
     }
+  });
+
+  $(".detailclick").click(function() {
+    var clickedID = 0;
+    /*
+    alert(
+      "clicked on:" +
+        parseInt($(this).attr("arrID"))
+    );
+    */
+    if ($(this).attr("arrID")) {
+      clickedID = $(this).attr("arrID");
+    }
+    refreshModal(parseInt(clickedID));
+    $("#DisplayModal").modal("show");
   });
 });
