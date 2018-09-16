@@ -143,6 +143,7 @@ function drawScreen(jsObj) {
         .replace("##stagesymbol##", S2S[jite.Stage])
         .replace("##arrID##", jite.Id);
     });
+    
     monArr = Q2M[ite.Qtr];
     strTIS = "";
     $.each(monArr, function(mind, mite) {
