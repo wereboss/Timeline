@@ -17,7 +17,19 @@ const Mmm = [
 ];
 var OrgRDmap = [],
   RDmap = [],
-  TimelineArr = [];
+  TimelineArr = [],
+  ColorArr = ["yellow", "pink", "blue", "green"];
+
+function assignColor(progID, type) {
+  var cStr = "",
+    cLen = ColorArr.length;
+  cStr = ColorArr[progID % cLen];
+  if (type == "Program") {
+    return "bg-program-" + cStr + " f-16";
+  } else {
+    return "bg-feature-" + cStr + " f-14";
+  }
+}
 
 function DateCol(dDateVal) {
   var tmpD = "";
@@ -80,7 +92,7 @@ function genTimeline() {
   maxD = new Date(minD);
   maxD.setFullYear(maxD.getFullYear() + 3);
   maxD.setDate(1);
-  console.log("minD:" + minD.toDateString() + ",maxD:" + maxD.toDateString());
+  //console.log("minD:" + minD.toDateString() + ",maxD:" + maxD.toDateString());
   //alert("minD:" + minD.toDateString() + ",maxD:" + maxD.toDateString());
   dDate = minD;
   while (dDate <= maxD) {
@@ -103,7 +115,7 @@ function genColumnArr() {
         rowspan: 2,
         cellStyle: function(value, row, index, field) {
           return {
-            classes: "",
+            classes: "title-" + row.Type,
             css: { "min-width": "400px" }
           };
         }
@@ -137,129 +149,12 @@ function genColumnArr() {
       field: tmpMF[0],
       title: tmpMF[1],
       align: "center",
-      valign: "middle"
+      valign: "middle",
+      cellStyle: cFormatter
     });
   });
-  console.log("inside genColumnArr:" + JSON.stringify(dColArr, null, 4));
+  //console.log("inside genColumnArr:" + JSON.stringify(dColArr, null, 4));
   return dColArr;
-  /*
-  return [
-    [
-      {
-        field: "Title",
-        title: "Title",
-        align: "left",
-        valign: "middle",
-        rowspan: 2
-      },
-      {
-        field: "Type",
-        title: "Type",
-        align: "left",
-        valign: "middle",
-        rowspan: 2
-      },
-      {
-        title: "Q2'2018",
-        colspan: 3,
-        align: "center",
-        valign: "middle"
-      },
-      {
-        title: "Q3'2018",
-        colspan: 3,
-        align: "center",
-        valign: "middle"
-      },
-      {
-        title: "Q4'2018",
-        colspan: 3,
-        align: "center",
-        valign: "middle"
-      },
-      {
-        title: "Q1'2019",
-        colspan: 3,
-        align: "center",
-        valign: "middle"
-      }
-    ],
-    [
-      {
-        field: "Feb2018",
-        title: "Feb'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Mar2018",
-        title: "Mar'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Apr2018",
-        title: "Apr'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "May2018",
-        title: "May'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Jun2018",
-        title: "Jun'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Jul2018",
-        title: "Jul'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Aug2018",
-        title: "Aug'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Sep2018",
-        title: "Sep'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Oct2018",
-        title: "Oct'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Nov2018",
-        title: "Apr'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Dec2018",
-        title: "Apr'18",
-        align: "center",
-        valign: "middle"
-      },
-      {
-        field: "Jan2019",
-        title: "Jan'19",
-        align: "left",
-        valign: "middle"
-      }
-    ]
-  ];
-  */
 }
 
 function loadRJSON() {
@@ -318,19 +213,42 @@ function dFormatter(index, row, element) {
   //$(".glyphicon-plus").addClass("fas fa-plus");
   //$(".glyphicon-minus").addClass("fas fa-minus");
   //  console.log("index:" + index + ",row:" + JSON.stringify(row,null,4) + ",element:" + JSON.stringify(element,null,4));
-  return "sample detail text";
+  return row.Title + " detail text";
 }
 
 function dFilter(index, row) {
   //debugger;
-  return true;
+  if (row.Type != "Program") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function rowFormatter(row, index) {
-    console.log(JSON.stringify(row));
+  //console.log(JSON.stringify(row));
+  //var cStr = assignColor(row.ProgramId, row.Type);
+  //console.log("Color:" + cStr);
   if (row.Type == "Program") {
     return {
-      classes: "bg-program"
+      classes:
+        "bg-program-" + ColorArr[row.ProgramId % ColorArr.length] + " f-16"
+    };
+  } else {
+    return {
+      classes:
+        "bg-feature-" + ColorArr[row.ProgramId % ColorArr.length] + " f-14"
+    };
+  }
+}
+
+function cFormatter(value, row, index, field) {
+  //console.log(value);
+  //var cStr = assignColor(row.ProgramId, "Program");
+
+  if (value && row.Type == "Feature") {
+    return {
+      classes: "bg-value-" + ColorArr[row.ProgramId % ColorArr.length]
     };
   } else {
     return {
@@ -339,7 +257,7 @@ function rowFormatter(row, index) {
   }
 }
 
-$(function() {
+function renderRoadmap() {
   var colArr = genColumnArr();
   RDmap = loadTable();
   OrgRDmap = RDmap;
@@ -357,6 +275,71 @@ $(function() {
     detailView: true,
     detailFormatter: dFormatter,
     detailFilter: dFilter,
-    rowStyle: rowFormatter
+    rowStyle: rowFormatter,
+    classes: "table",
+    idField: "Id",
+    uniqueId: "Id"
   });
+
+  RDmap.forEach(element => {
+    if (element.Type != "Program") {
+      $("#Rtable").bootstrapTable("hideRow", { uniqueId: element.Id });
+    }
+  });
+
+  $("#Rtable").on("click-row.bs.table", function(e, row, $element, field) {
+    //debugger;
+    /*
+    console.log(
+      "Values row:" +
+        JSON.stringify(row, null, 4) +
+        ",Element:" +
+        $element.html() +
+        ",Field:" +
+        field
+    );
+    */
+    if (row.Type == "Program") {
+      var bShow = false,
+        idList = row.IdList;
+      console.log(
+        "Clicked Program:" + row.Title + "IdList:" + JSON.stringify(idList)
+      );
+      var hiddenRows = $("#Rtable").bootstrapTable("getHiddenRows", false);
+      if (hiddenRows.length > 0) {
+        hiddenRows.findIndex(function(currentValue, index, arr) {
+          if (currentValue.ProgramId == row.ProgramId) {
+            bShow = true;
+            return true;
+          }
+        });
+      }
+      if (bShow) {
+        row.IdList.forEach(element => {
+          $("#Rtable").bootstrapTable("showRow", { uniqueId: element });
+        });
+      } else {
+        row.IdList.forEach(element => {
+          $("#Rtable").bootstrapTable("hideRow", { uniqueId: element });
+        });
+      }
+
+      console.log("getHiddenRows:" + JSON.stringify(hiddenRows));
+    } else {
+      console.log(
+        "Clicked Feature or something else:" +
+          row.Title +
+          "Program:" +
+          row.ProgramId
+      );
+    }
+    //$(".glyphicon-plus").addClass("fas fa-plus");
+    //$(".glyphicon-minus").addClass("fas fa-minus");
+    //$detail.text(AMdata[index].Desc);
+  });
+}
+
+$(function() {
+  renderRoadmap();
+  renderChangelog();
 });

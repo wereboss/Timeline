@@ -27,9 +27,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+
     <!-- Own files-->
     <link rel="stylesheet" href="Roadmap.css">
+    <link rel="stylesheet" href="bootstrap-fixed-columns.css">
+    <script src="MyTemplate.js"></script>
+    <script src="Changelog.js"></script>
     <script src="Roadmap.js"></script>
+    <script src="bootstrap-fixed-columns.js"></script>
     <!--
     <script src="loadjson.js"></script>
     -->
@@ -52,22 +57,42 @@
                             <div class="card-header lead">
 
                             </div>
-                            <div class="card-body TableContainer p-0">
+                            <div class="card-body TableContainer p-0 maincard">
                                 <div class="RoadmapTable">
-                                    <table id="Rtable" data-toolbar="#toolbar" data-search="true" data-detail-view="true">
+                                    <table id="Rtable" data-detail-view="true">
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div id="cltab" class="tab-pane">
-                        <div class="card">
+                        <div class="card" myt-type="html">
                             <div class="card-header">
-
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Title CL</h5>
-                                <p class="card-text">ContentCL</p>
+                            <div class="card-body maincard" myt-obj="MonthArr" myt-type="array" myt-substype="html">
+                                <div class="card mb-2">
+                                    <div class="card-header" myt-obj="Month" myt-substype="text">
+                                        ##Month##
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-columns" myt-obj="ChangeArr" myt-type="array" myt-substype="html">
+                                            <div class="card">
+                                                <div class="card-header" myr-obj="Title" myt-substype="text">
+                                                    ##Title##
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-text" myr-obj="Desc" myt-substype="text">##Desc##</p>
+                                                </div>
+                                                <div class="card-footer" myr-obj="ProgramTitle" myt-substype="text">
+                                                    ##ProgramTitle##
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal" id="HiddenDiv" tabindex="-1" aria-hidden="true">
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>

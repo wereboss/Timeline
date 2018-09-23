@@ -13,8 +13,74 @@
 }
 .RoadmapTable {
     width: 100%;
-    height:600px;
+    height:485px;
+}
+.f-14 {
+    font-size: 14px;
+}
+.f-16 {
+    font-size: 16px;
 }
 .bg-program {
-    background-color: rgba(255, 203, 183, 0.438);
+    background-color: rgba(255, 203, 183, 0.5);
+    text-transform: uppercase;
+}
+.bg-feature {
+    background-color: rgba(255, 203, 183, 0.2);
+}
+.bg-program-pink {
+    color: rgb(255, 130, 81);
+    text-transform: uppercase;
+}
+.bg-value-pink {
+    background-color: rgba(255, 203, 183, 0.5);
+    font-size: 12px;
+}
+.bg-feature-pink {
+    color: rgb(255, 130, 81);
+}
+.bg-program-yellow {
+    color: rgb(201, 198, 54);
+    text-transform: uppercase;
+}
+.bg-value-yellow {
+    background-color: rgba(253, 255, 123, 0.5);
+    font-size: 12px;
+}
+.bg-feature-yellow {
+    color: rgb(201, 198, 54);
+}
+.bg-program-blue {
+    color: rgb(53, 194, 204);
+    text-transform: uppercase;
+}
+.bg-value-blue {
+    background-color: rgba(125, 246, 255, 0.5);
+    font-size: 12px;
+}
+.bg-feature-blue {
+    color: rgb(53, 194, 204);
+}
+.bg-program-green {
+    color: rgb(103, 199, 47);
+    text-transform: uppercase;
+}
+.bg-value-green {
+    background-color: rgba(170, 255, 121, 0.5);
+    font-size: 12px;
+}
+.bg-feature-green {
+    color: rgb(103, 199, 47);
+}
+.table > thead > tr {
+    background-color: rgba(107, 107, 107, 0.8);
+    color: white;
+}
+.title-Program {
+    text-decoration: underline;
+}
+.maincard {
+    width: 100%;
+    overflow-x: scroll;
+    max-height: 500px;
 }

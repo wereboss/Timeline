@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test Template</title>
+    <!-- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="MyTemplate.js"></script>
+    <script src="testTemplate.js"></script>
+</head>
+
+<body>
+    <div id="mytrender" myt-obj="testObj" myt-type="html">
+        <span myt-obj="testFirstChildText" myt-type="text">First text: ##testFirstChildText##</span>
+        <div myt-obj="testFirChildArr" myt-type="array">
+            <p myt-obj="testObjtext" myt-type="text">##testObjtext##</p>
+            <p myt-obj="testObjnum" myt-type="text">##testObjnum##</p>
+            <p myt-obj="testObjbool" myt-type="text">##testObjbool##</p>
+            <div myt-obj="testDeepArr" myt-type="array">
+                <b myt-obj="num" myt-type="text">##num##</b><i myt-obj="name" myt-type="text">##name##</i>
+            </div>
+        </div>
+        <span myt-obj="testSecondChildText" myt-type="text">Second text:##testSecondChildText##</span>
+
+        <div myt-obj="testSecChildArr" myt-type="array">
+            <p myt-obj="testObjtext" myt-type="text">##testObjtext##</p>
+            <p myt-obj="testObjnum" myt-type="text">##testObjnum##</p>
+            <p myt-obj="testObjbool" myt-type="text">##testObjbool##</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
