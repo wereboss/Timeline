@@ -3,9 +3,9 @@ function SimpTemplate(jsele) {
   this.jsObj = {};
 
   this.string2obj = function(str, parent, arrID) {
-    console.log("Inside new string2obj:" + str);
+    //console.log("Inside new string2obj:" + str);
     if (parent) {
-      console.log("arrID:" + arrID);
+      //console.log("arrID:" + arrID);
       if (arrID) {
         var pn = parent[parseInt(arrID)];
         var fn = pn[str];
@@ -15,7 +15,7 @@ function SimpTemplate(jsele) {
       if (typeof fn == "function") {
         throw new Error("function found");
       }
-      console.log("About to return:" + JSON.stringify(fn));
+      //console.log("About to return:" + JSON.stringify(fn));
       return fn;
     }
   };
@@ -28,17 +28,17 @@ function SimpTemplate(jsele) {
     var currJSData = this.jsQ[this.jsQ.length - 1];
 
     var childJS = $(jsNode).children();
-    console.log("inside processHtml:" + JSON.stringify(currJSData) + "& arrID:" + arrID);
+    //console.log("inside processHtml:" + JSON.stringify(currJSData) + "& arrID:" + arrID);
     arr2ID = $(jsNode).attr("myt-parrid");
     if(arrID){
-      console.log("inside processHtml recieved  arrID:" + arrID);
+      //console.log("inside processHtml recieved  arrID:" + arrID);
     }
     for (let injs = 0; injs < childJS.length; injs++) {
       var cType = $(childJS[injs]).attr("myt-type");
       if(arrID){
         $(childJS[injs]).attr("myt-parrid",arrID);
       }
-      console.log("under child with type:" + cType);
+      //console.log("under child with type:" + cType);
       switch (cType) {
         case "obj":
           var thisObj = this.string2obj(
@@ -46,7 +46,7 @@ function SimpTemplate(jsele) {
             currJSData,
             arr2ID
           );
-          console.log("inside html type:" + $(jsNode).attr("myt-obj"));
+          //console.log("inside html type:" + $(jsNode).attr("myt-obj"));
           this.jsQ.push(thisObj);
           this.processHtml(childJS[injs]);
           this.jsQ.pop();
@@ -58,7 +58,7 @@ function SimpTemplate(jsele) {
           this.processArray(childJS[injs]);
           break;
         default:
-          console.log("inside default type:" + $(childJS[injs]).attr("myt-parrid"));
+          //console.log("inside default type:" + $(childJS[injs]).attr("myt-parrid"));
           this.processHtml(childJS[injs],$(childJS[injs]).attr("myt-parrid"));
           break;
       }
@@ -73,7 +73,7 @@ function SimpTemplate(jsele) {
       $(jsNode).attr("myt-parrid")
     );
     if (sData) {
-      console.log("inside processArry:" + JSON.stringify(sData));
+      //console.log("inside processArry:" + JSON.stringify(sData));
       var eleChildArr = [];
       var eleArr = $(jsNode).children();
       for (let inda = 0; inda < eleArr.length; inda++) {
@@ -101,7 +101,7 @@ function SimpTemplate(jsele) {
       $(jsNode).attr("myt-parrid")
     );
     var eText = $(jsNode).text();
-    console.log("inside processText:" + sData);
+    //console.log("inside processText:" + sData);
     $(jsNode).text(
       eText.replace(
         new RegExp("##" + $(jsNode).attr("myt-obj") + "##", "g"),
