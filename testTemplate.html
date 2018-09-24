@@ -13,15 +13,17 @@
 </head>
 
 <body>
-    <div id="mytrender" myt-obj="testObj" myt-type="html">
+    <div id="mytrender" myt-obj="testObj" myt-type="obj">
         <span myt-obj="testFirstChildText" myt-type="text">First text: ##testFirstChildText##</span>
         <div myt-obj="testFirChildArr" myt-type="array">
             <p myt-obj="testObjtext" myt-type="text">##testObjtext##</p>
             <p myt-obj="testObjnum" myt-type="text">##testObjnum##</p>
             <p myt-obj="testObjbool" myt-type="text">##testObjbool##</p>
-            <div myt-obj="testDeepArr" myt-type="array">
-                <b myt-obj="num" myt-type="text">##num##</b><i myt-obj="name" myt-type="text">##name##</i>
-            </div>
+            <div><div> 
+                <div myt-obj="testDeepArr" myt-type="array">
+                    <b myt-obj="num" myt-type="text">##num##</b><i myt-obj="name" myt-type="text">##name##</i>
+                </div>
+             </div></div> 
         </div>
         <span myt-obj="testSecondChildText" myt-type="text">Second text:##testSecondChildText##</span>
 

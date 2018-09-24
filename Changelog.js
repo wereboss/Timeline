@@ -27,6 +27,6 @@ function loadCLJSON() {
 
 function renderChangelog() {
   CLmap = loadCLJSON();
-  var mainTmpl = new MyTemplate($("#mytrender"), false, null);
+  var mainTmpl = new SimpTemplate($("#mytrender"), false, null);
   mainTmpl.renderMe();
 }
