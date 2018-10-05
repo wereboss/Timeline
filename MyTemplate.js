@@ -24,19 +24,19 @@ function SimpTemplate(jsele) {
   this.jsQ = [];
   this.jsQ.push(this.jsObj);
 
-  this.processHtml = function(jsNode,arrID) {
+  this.processHtml = function(jsNode, arrID) {
     var currJSData = this.jsQ[this.jsQ.length - 1];
 
     var childJS = $(jsNode).children();
     //console.log("inside processHtml:" + JSON.stringify(currJSData) + "& arrID:" + arrID);
     arr2ID = $(jsNode).attr("myt-parrid");
-    if(arrID){
+    if (arrID) {
       //console.log("inside processHtml recieved  arrID:" + arrID);
     }
     for (let injs = 0; injs < childJS.length; injs++) {
       var cType = $(childJS[injs]).attr("myt-type");
-      if(arrID){
-        $(childJS[injs]).attr("myt-parrid",arrID);
+      if (arrID) {
+        $(childJS[injs]).attr("myt-parrid", arrID);
       }
       //console.log("under child with type:" + cType);
       switch (cType) {
@@ -59,7 +59,7 @@ function SimpTemplate(jsele) {
           break;
         default:
           //console.log("inside default type:" + $(childJS[injs]).attr("myt-parrid"));
-          this.processHtml(childJS[injs],$(childJS[injs]).attr("myt-parrid"));
+          this.processHtml(childJS[injs], $(childJS[injs]).attr("myt-parrid"));
           break;
       }
     }
@@ -110,3 +110,4 @@ function SimpTemplate(jsele) {
     );
   };
 }
+

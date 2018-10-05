@@ -1,0 +1,29 @@
+{
+  "MonthList": {
+    "_source": "d.results",
+    "_isArray":true,
+    "_uniqueRows": false,
+    "_findF": "monthListFind",
+    "_filterF": "monthListFilter",
+    "_obj": {
+      "Id": {
+        "_source": "Id"
+      },
+      "Month": {
+        "_source": "RelDate",
+        "_formatF": "monthFormatter"
+      },
+      "ChangeList": {
+        "_source": "@this",
+        "_isArray":false,
+        "_uniqueRows": false,
+        "_obj": {
+          "Title": {
+            "_source": "Title",
+            "_subsText": "##Title## - Title Suffix"
+          }
+        }
+      }
+    }
+  }
+}

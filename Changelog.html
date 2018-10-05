@@ -29,12 +29,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
 
     <!-- Own files-->
-    <link rel="stylesheet" href="Roadmap.css">
+    <link rel="stylesheet" href="Changelog.css">
     <link rel="stylesheet" href="bootstrap-fixed-columns.css">
+    <script src="JSONTemplate.js"></script>
     <script src="MyTemplate.js"></script>
     <script src="Changelog.js"></script>
-    <script src="Roadmap.js"></script>
-    <script src="bootstrap-fixed-columns.js"></script>
     <!--
     <script src="loadjson.js"></script>
     -->
@@ -44,19 +43,33 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h4> Roadmap</h4>
+                <h4> Change Log</h4>
             </div>
             <div class="card-body p-0">
-                <div class="tab-content">
-                    <div id="rtab" class="tab-pane active">
-                        <div class="card">
-                            <div class="card-header lead">
+                <div class="tab-pane active">
+                    <div id="mytrender" myt-obj="ChangeLog" myt-type="obj" class="card">
+                        <div class="card-header lead">
 
-                            </div>
-                            <div class="card-body TableContainer p-0 maincard">
-                                <div class="RoadmapTable">
-                                    <table id="Rtable" data-detail-view="true">
-                                    </table>
+                        </div>
+                        <div myt-obj="MonthList" myt-type="array" class="card-body  ">
+                            <div class="card mb-2">
+                                <div myt-obj="Month" myt-type="text" class="card-header">
+                                    ##Month##
+                                </div>
+                                <div class="card-body">
+                                    <div myt-obj="ChangeList" myt-type="array" class="card-columns">
+                                        <div class="card">
+                                            <div myt-obj="Title" myt-type="text" class="card-header">
+                                                ##Title##
+                                            </div>
+                                            <div class="card-body">
+                                                <p myt-obj="Desc" myt-type="text" class="card-text">Content</p>
+                                            </div>
+                                            <div myt-obj="Countries" myt-type="text" class="card-footer">
+                                                ##Countries##
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
